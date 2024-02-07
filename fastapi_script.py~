@@ -1,0 +1,18 @@
+from typing import Union #Union is the typing module
+from fastapi import FastAPI #imports FastAPI class from the fastapi module
+
+
+app = FastAPI() #creates an instance of the FastAPI class and assigns it to the variable app
+
+@app.get("/") #decorator used to define a route for the root URL of the web app
+
+def read_root(): #read_root function os called when a GET request is made to the URL
+
+    return {"Hello": "World"}
+#Returns a dictionary with the key Hello and the value World
+#When running fastapi_script:app --reload, it will show {"Hello":"World"} in the API which is up and running in the browser
+
+#@app.get("/items/{item_id}/") #decorator used to define a route for URLs that include an item ID parameter
+
+#def read_item(item_id: int, q: Union[str, None] = None):#this function returns a dictionary with the item_id and q values
+#    return {"item_id": item_id, "q": q}
